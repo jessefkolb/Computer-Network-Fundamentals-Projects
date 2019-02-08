@@ -1,5 +1,11 @@
-Note:
-This program is set up to only accept port number 9017 to avoid conflicts. This code has been tested on both the CISE machines remotely through PuTTy, and Windows 10.
+----------------------------Project summary----------------------------
+
+This project contains a server program and a client program developed to run on two separate machines. They communicate with each other using socket communication on a TCP/IP protocol suite. The process is as follows: After initialization, the server process listens and
+responds to the clients’ requests. A client will try to connect to the server and send out a message containing a command and inputs. The command will be arithmetic calculation commands of adding, subtracting and multiplying and is followed by inputs of one or more numbers (e.g. add 12 7). Upon receiving the command and inputs, the server will respond to the client with the calculating result (e.g. 19).
+
+Note: This program was set up to only accept port number 9017 to avoid conflicts. This code has been tested on both the CISE machines remotely through PuTTy, and Windows 10.
+
+-------------------------Compiling Instructions-------------------------
 
 Commands to compile server.java on storm.cise.ufl.edu server:
 javac server.java
@@ -9,7 +15,8 @@ Commands to compile client.java on thunder.cise.ufl.edu server:
 javac client.java
 java client storm.cise.ufl.edu 9017
 
-Code structure:
+-----------------------------Code structure------------------------------
+
 My server.java code is structured into multiple different methods. In main, the server/client relationship is established, and the IO streams are set up. The client input is parsed into an array, which is then sent to the first parsing method (opParser), which parses the request and determines if it is valid, making use of another method (numParser) to ensure the input after the
 operative are numbers. If the request is not valid, an error code is sent back. 
 
@@ -18,7 +25,8 @@ Additionally, if the user decides to terminate or say "bye", the code -5 is sent
 My client.java code is fairly straightforward. After the IO streams are set up and the client establishes communication with the server, a while loop is entered to take in input from the client. It is only exited when the client requests termination of communication with the server through "bye" or "terminate". The input is then sent to the server for the server to perform its
 parsing and calculations.
 
-Results:
+------------------------------Sample Results-----------------------------
+
 Server side:
 ./server 9017
 get connection from 127.0.0.1
