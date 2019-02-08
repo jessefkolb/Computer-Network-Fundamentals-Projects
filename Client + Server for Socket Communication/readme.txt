@@ -1,7 +1,6 @@
 ----------------------------Project summary----------------------------
 
-This project contains a server program and a client program developed to run on two separate machines. They communicate with each other using socket communication on a TCP/IP protocol suite. The process is as follows: After initialization, the server process listens and
-responds to the clients’ requests. A client will try to connect to the server and send out a message containing a command and inputs. The command will be arithmetic calculation commands of adding, subtracting and multiplying and is followed by inputs of one or more numbers (e.g. add 12 7). Upon receiving the command and inputs, the server will respond to the client with the calculating result (e.g. 19).
+This project contains a server program and a client program developed to run on two separate machines. They communicate with each other using socket communication on a TCP/IP protocol suite. The process is as follows: After initialization, the server process listens and responds to the clients’ requests. A client will try to connect to the server and send out a message containing a command and inputs. The command will be arithmetic calculation commands of adding, subtracting and multiplying and is followed by inputs of one or more numbers (e.g. add 12 7). Upon receiving the command and inputs, the server will respond to the client with the calculating result (e.g. 19).
 
 Note: This program was set up to only accept port number 9017 to avoid conflicts. This code has been tested on both the CISE machines remotely through PuTTy, and Windows 10.
 
