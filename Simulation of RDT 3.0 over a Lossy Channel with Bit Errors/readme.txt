@@ -1,4 +1,4 @@
-Compiling instructions:
+---------------------------------------Compiling instructions---------------------------------------
 
 javac network.java packet.java receiver.java sender.java
 
@@ -16,16 +16,18 @@ SAND SERVER:
 
 java Sender storm.cise.ufl.edu 9017 message.txt
 
-Code Structure:
+-------------------------------------------Code Structure-------------------------------------------
 
-This project is seperated into the three required java files (network, sender, and receiver) and one supporting java file (packet). Packet was added in to perform certain operations such as converting a string to a packet, calculating the checksum, keeping track of the sequence and ID numbers, and many more small helpful methods. The sender program begins by accepting the port number, URL of the network server, and message text file and creating a socket to communicate with the network. Next, the message from the text file is parsed into an array in preparation to be sent off into the network in individual packets. It then runs through a while loop as long as there are "packets" in the array, and sends and resends packets based on the outlined conditions in the project.
+This project is separated into the three required java files (network, sender, and receiver) and one supporting java file (packet). Packet was added in to perform certain operations such as converting a string to a packet, calculating the checksum, keeping track of the sequence and ID numbers, and many more small helpful methods. The sender program begins by accepting the port number, URL of the network server, and message text file and creating a socket to communicate with the network. Next, the message from the text file is parsed into an array in preparation to be sent off into the network in individual packets. It then runs through a while loop as long as there are "packets" in the array, and sends and resends packets based on the outlined conditions in the project.
 
 The network program begins by accepting the port number and creating new sockets through which it can send and receive code. The program now runs its packet transportation method -- run(); -- that spawns two threads (sendThread and receiveThread), allowing for two incoming connections with both sender and receiver. Packets are chosen randomly to be either PASS, CORRUPT, or DROP. If PASS gets chosen, the packet is delivered as normal to the receiver with either ACK0 or ACK1. If CORRUPT gets chosen, the supporting packet java file runs a method to corrupt the checksum, then the packet is delivered to the receiver with ACK0 or ACK1. If DROP gets chosen, ACK2 is delivered back to the sender. 
 
 Finally, the receiver program begins by accepting the port number and URL of the network server and creating a socket to communicate with the network. Next, it runs a while loop as long as there are still packets to be received, determined by the sequence number. If the checksum checks out, the packet is accepted and added to the message and the state is changed. When complete, receiver prints out the final message.
 
 
-Execution Results (message.txt contains "hello there friend."):
+------------------------------------------Execution Results------------------------------------------ 
+
+(message.txt contains "hello there friend."):
 
 Network:
 
@@ -67,8 +69,3 @@ Waiting ACK0, 5, DROP, resend Packet0 ...
 Waiting ACK0, 6, ACK1, resend Packet0 ...
 Waiting ACK0, 7, ACK0, Message sent.
 Sender closed.
-
-
-Bugs & Limitations:
-
-No bugs were found during the testing of this program.
